@@ -1,0 +1,83 @@
+<body>
+  <!-- <div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="card card-stats">
+      <div class="card-body"> -->
+  <div class="card-body">
+    <div class="Container-fluid">
+      <button
+        [routerLink]="['/dashboard/check_in']"
+        class="btn btn-success butnrihgt"
+      >
+        Check In
+      </button>
+      <br />
+      <br />
+      <h1 align="center">Check In List</h1>
+      <div class="page-data">
+        <div class="data-table col-lg-12 col-md-12 col-sm-12">
+          <!-- <div class="data-btn">
+          <button class="btn btn-success butn"><a href="#!add_customer"> Add Room </a></button>
+      </div> -->
+          <table
+            datatable="ng"
+            border="1"
+            cellpadding="7"
+            cellspacing="7"
+            id="users"
+          >
+            <thead>
+              <tr>
+                <th align="center">CheckIn Id</th>
+                <th align="center">First Name</th>
+                <th align="center">Last Name</th>
+                <th align="center">Email</th>
+                <th align="center">Gender</th>
+                <th align="center">Room Number</th>
+                <th align="center">Room Type</th>
+                <th align="center">Id Type</th>
+                <th align="center">Id Number</th>
+                <th align="center">Check In Date</th>
+                <th align="center">Check Out Date</th>
+                <th align="center">Status</th>
+                <th align="center">Entry</th>
+              </tr>
+            </thead>
+            <tbody *ngIf="checkindata?.length != 0">
+              <tr *ngFor="let cust of checkindata">
+                <!-- <td width="50px"> {{cust.room_no}} </td> -->
+                <td class="rightaligned">{{ cust.checkin_id }}</td>
+                <td class="leftaligned">{{ cust.first_name }}</td>
+                <td class="leftaligned">{{ cust.last_name }}</td>
+                <td class="leftaligned">{{ cust.email }}</td>
+                <td class="leftaligned">{{ cust.gender }}</td>
+                <td class="rightaligned">{{ cust.room_number }}</td>
+                <td class="leftaligned">{{ cust.room_type }}</td>
+                <td class="leftaligned">{{ cust.idtype }}</td>
+                <td class="rightaligned">{{ cust.idnumber }}</td>
+                <td class="leftaligned">{{ cust.check_in }}</td>
+                <td class="leftaligned">{{ cust.check_out }}</td>
+                <td class="leftaligned">{{ cust.status }}</td>
+                <td class="rightaligned" *ngIf="cust.booking_id % 2 == 0">
+                  {{ "Local" }}
+                </td>
+                <td class="rightaligned" *ngIf="cust.booking_id % 2 != 0">
+                  {{ "Server" }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ngx-spinner
+    bdColor="rgba(0, 0, 0, 0.8)"
+    size="medium"
+    color="#fff"
+    type="ball-running-dots"
+    Fullscreen
+    Mode="Enabled"
+  >
+    <p style="font-size: 20px; color: white;">Loading...</p>
+  </ngx-spinner>
+</body>
